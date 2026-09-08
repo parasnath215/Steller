@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-stellar-muted bg-white font-sans antialiased overflow-x-hidden;
+  }
+
+  ::selection {
+    background-color: rgba(0, 194, 203, 0.25);
+    color: #0D0D0D;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-stellar-dark tracking-tight;
+  }
+}
+
+@layer components {
+  /* Primary CTA Button: Black with Purple Offset Shadow Hover Effect (as requested) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full text-white bg-[#0D0D0D] cursor-pointer transition-all duration-200 transform border border-neutral-800;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-primary:hover {
+    @apply bg-black text-white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 0 #8B5CF6;
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 0 #8B5CF6;
+  }
+
+  /* Secondary / Outline Button: Tinted in cool cyan/sky, crisp neutral text, cool hover wash */
+  .btn-outline {
+    @apply inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full border-2 border-[#00C2CB]/75 text-stellar-dark bg-transparent cursor-pointer transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline:hover {
+    background-color: rgba(0, 194, 203, 0.08);
+    border-color: #00C2CB;
+    box-shadow: 0 4px 16px -2px rgba(0, 194, 203, 0.22);
+  }
+
+  /* Grounded Deep Charcoal Button */
+  .btn-dark {
+    @apply inline-flex items-center justify-center font-bold px-7 py-3.5 rounded-full bg-stellar-dark text-white border border-neutral-800 shadow-md cursor-pointer transition-all duration-200 transform;
+  }
+
+  .btn-dark:hover {
+    @apply bg-black text-white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 0 #8B5CF6;
+  }
+
+  .btn-dark:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 0 #8B5CF6;
+  }
+
+  /* Form Focus & Active States: Cyan or Soft Purple rings & borders */
+  .input-focus {
+    @apply focus:outline-none focus:border-stellar-cyan focus:ring-2 focus:ring-stellar-cyan/25 transition-all;
+  }
+
+  /* Hairline Spectrum Border Accent */
+  .spectrum-hairline {
+    background-image: linear-gradient(90deg, #FF5C58 0%, #FF8A3D 20%, #FFC436 40%, #7BB086 60%, #A277FF 80%, #00C2CB 100%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5;
+  }
+}
+
+/* Custom scrollbar with cool cyan hover state */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #c3c7d9;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00C2CB;
+}
