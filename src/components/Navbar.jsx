@@ -40,7 +40,7 @@ export default function Navbar({ onOpenQuote }) {
             <img
               src="https://stellarweb.in/wp-content/uploads/2024/12/cropped-STELLAR__4_-removebg-preview-1.png"
               alt="STELLAR Logo"
-              className="h-12 sm:h-16 md:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-14 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 

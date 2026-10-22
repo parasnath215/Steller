@@ -116,7 +116,7 @@ export default function WhatWeBuild({ onOpenQuote }) {
                   </p>
                 </div>
 
-                <div className="pt-3 sm:pt-4 mt-3 border-t border-gray-100 flex items-center text-[11px] sm:text-xs font-semibold text-stellar-cyan opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="hidden sm:flex pt-3 sm:pt-4 mt-3 border-t border-gray-100 items-center text-[11px] sm:text-xs font-semibold text-stellar-cyan opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Learn more</span>
                   <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 ml-1 transition-transform group-hover:translate-x-1" />
                 </div>

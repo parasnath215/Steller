@@ -1,201 +1,251 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, ArrowUp } from 'lucide-react';
 
 export default function Footer({ onOpenQuote }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const services = [
+    { name: "Custom Software Dev", path: "/services" },
+    { name: "Mobile App Development", path: "/services" },
+    { name: "ERP & CRM Solutions", path: "/services" },
+    { name: "SaaS Engineering", path: "/services" },
+    { name: "Software Modernisation", path: "/services" },
+    { name: "Dedicated Tech Pods", path: "/services" },
+  ];
+
+  const industries = [
+    { name: "Healthcare & MedTech", path: "/clinic-website" },
+    { name: "EdTech & Learning", path: "/portfolio" },
+    { name: "FinTech & Banking", path: "/portfolio" },
+    { name: "Real Estate & PropTech", path: "/portfolio" },
+    { name: "E-commerce Retail", path: "/portfolio" },
+    { name: "Logistics & On-Demand", path: "/portfolio" },
+  ];
+
+  const quickLinks = [
+    { name: "Why Choose STELLAR", path: "/about" },
+    { name: "Software Portfolio", path: "/portfolio" },
+    { name: "Technology Stack", path: "/services" },
+    { name: "Cities We Serve", path: "#cities-we-serve" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
+  const cities = [
+    "Bengaluru", "Mumbai", "Delhi NCR", "Hyderabad", "Pune",
+    "Chennai", "Ahmedabad", "Jaipur", "Noida", "Gurgaon",
+    "Kolkata", "Surat", "Indore", "Bhopal", "Coimbatore",
+    "Chandigarh", "Vadodara", "Nagpur", "Kochi", "Lucknow",
+    "Trivandrum", "Bhubaneswar", "Patna", "Dehradun", "and more"
+  ];
+
   return (
-    <footer id="contact" className="bg-[#0D0D0D] text-white pt-20 pb-12 relative overflow-hidden border-t border-[#00C2CB]/20">
-      {/* Canonical Brand Spectrum Hairline at top of footer */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#FF5C58] via-[#7BB086] to-[#00C2CB] opacity-40 pointer-events-none" />
-
-      {/* Ambient background light: cool spectrum glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#00C2CB]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#A277FF]/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Top CTA Banner */}
-        <div className="relative bg-gradient-to-br from-[#171717] to-[#0D0D0D] border border-[#00C2CB]/30 rounded-3xl p-8 sm:p-12 mb-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left overflow-hidden">
-          {/* Subtle Top Spectrum Line on CTA Banner */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF5C58] via-[#7BB086] to-[#00C2CB]" />
-
-          <div className="space-y-2 max-w-2xl">
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Ready to scale your business online?
-            </h3>
-            <p className="text-gray-300 text-sm sm:text-base">
-              Talk to our team today for a free architecture review and project estimate.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <button
-              onClick={onOpenQuote}
-              className="btn-primary text-sm sm:text-base px-8 py-4 font-bold shadow-xl"
-            >
-              Get a Quote
-            </button>
-            <a
-              href="https://wa.me/919014757379"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-7 py-4 rounded-full bg-white/5 border border-white/20 text-white font-semibold text-sm sm:text-base hover:bg-white/10 hover:border-[#00C2CB]/50 transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-stellar-cyan" />
-              <span>WhatsApp Us</span>
-            </a>
-          </div>
-        </div>
-
-        {/* 4-Column Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-[#262626]">
+    <>
+      <footer id="contact" className="bg-[#F8F9FA] text-[#475569] pt-16 sm:pt-20 pb-16 sm:pb-20 relative overflow-hidden border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Col 1: Brand Info */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="flex items-center gap-3">
-              <Link to="/">
+          {/* Main Footer Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 pb-14">
+            
+            {/* Left Column: Brand, Description, Free Quote Button */}
+            <div className="lg:col-span-4 space-y-6">
+              <Link to="/" className="inline-block">
                 <img
-                  src="https://stellarweb.in/wp-content/uploads/2024/12/STELLAR__4_-removebg-preview.png"
+                  src="https://stellarweb.in/wp-content/uploads/2024/12/cropped-STELLAR__4_-removebg-preview-1.png"
                   alt="STELLAR"
-                  className="h-14 sm:h-18 w-auto object-contain brightness-0 invert"
+                  className="h-14 sm:h-16 w-auto object-contain"
                 />
               </Link>
-            </div>
 
-            <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
-              We build websites and digital products that don’t just look good — they work. User-focused, mobile-ready, and built to scale.
-            </p>
+              <p className="text-sm text-gray-600 leading-relaxed max-w-sm">
+                STELLAR builds mission-critical custom software, mobile applications, and enterprise web solutions for forward-thinking organizations across India and globally.
+              </p>
 
-            <div className="space-y-3 text-sm text-gray-300">
-              <a
-                href="mailto:admin@stellarweb.in"
-                className="flex items-center gap-3 hover:text-stellar-cyan transition-colors group"
-              >
-                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-stellar-cyan group-hover:text-stellar-cyan transition-colors">
-                  <Mail className="w-4 h-4 text-stellar-cyan" />
-                </div>
-                <span className="font-medium text-white">admin@stellarweb.in</span>
-              </a>
-
-              <a
-                href="tel:+919014757379"
-                className="flex items-center gap-3 hover:text-stellar-cyan transition-colors group"
-              >
-                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-stellar-cyan group-hover:text-stellar-cyan transition-colors">
-                  <Phone className="w-4 h-4 text-emerald-400" />
-                </div>
-                <span className="font-medium text-white">+91 90147 57379</span>
-              </a>
-
-              <div className="flex items-center gap-3 text-gray-400">
-                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                  <MapPin className="w-4 h-4 text-stellar-yellow" />
-                </div>
-                <span>Headquartered in Hyderabad &amp; Lucknow, India</span>
+              <div>
+                <button
+                  onClick={onOpenQuote}
+                  className="bg-[#00C2CB] hover:bg-[#009FA8] text-white font-bold px-6 py-3 rounded-full text-xs sm:text-sm shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer"
+                >
+                  Get Free Quote in 24 Hours
+                </button>
               </div>
             </div>
 
-            {/* Social Link */}
-            <div className="pt-2 flex items-center gap-3">
-              <a
-                href="https://www.instagram.com/stellar.webs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-stellar-cyan hover:text-stellar-dark hover:border-stellar-cyan transition-colors"
-                title="Follow on Instagram"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
+            {/* Right Columns: Services, Industries, Quick Links, Contact Us */}
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+              
+              {/* SERVICES */}
+              <div className="space-y-4">
+                <h4 className="text-xs sm:text-sm font-bold text-stellar-dark uppercase tracking-wider">
+                  SERVICES
+                </h4>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-gray-600">
+                  {services.map((item, idx) => (
+                    <li key={idx}>
+                      <Link to={item.path} className="hover:text-stellar-cyan transition-colors">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* INDUSTRIES */}
+              <div className="space-y-4">
+                <h4 className="text-xs sm:text-sm font-bold text-stellar-dark uppercase tracking-wider">
+                  INDUSTRIES
+                </h4>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-gray-600">
+                  {industries.map((item, idx) => (
+                    <li key={idx}>
+                      <Link to={item.path} className="hover:text-stellar-cyan transition-colors">
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* QUICK LINKS */}
+              <div className="space-y-4">
+                <h4 className="text-xs sm:text-sm font-bold text-stellar-dark uppercase tracking-wider">
+                  QUICK LINKS
+                </h4>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-gray-600">
+                  {quickLinks.map((item, idx) => (
+                    <li key={idx}>
+                      {item.path.startsWith('#') ? (
+                        <a href={item.path} className="hover:text-stellar-cyan transition-colors">
+                          {item.name}
+                        </a>
+                      ) : (
+                        <Link to={item.path} className="hover:text-stellar-cyan transition-colors">
+                          {item.name}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* CONTACT US */}
+              <div className="space-y-4">
+                <h4 className="text-xs sm:text-sm font-bold text-stellar-dark uppercase tracking-wider">
+                  CONTACT US
+                </h4>
+                <div className="space-y-2.5 text-xs sm:text-sm text-gray-600">
+                  <p>
+                    <a href="mailto:support@stellarweb.in" className="hover:text-stellar-cyan transition-colors">
+                      support@stellarweb.in
+                    </a>
+                  </p>
+                  <p>
+                    <a href="tel:+919014757379" className="hover:text-stellar-cyan transition-colors">
+                      +91 90147 57379
+                    </a>
+                  </p>
+                  <p className="leading-relaxed text-gray-500 pt-1">
+                    Hyderabad · Lucknow · Pan-India · Global (3+ Countries)
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* CITIES WE SERVE ACROSS INDIA Section */}
+          <div id="cities-we-serve" className="pt-8 pb-10 border-t border-gray-200">
+            <h4 className="text-xs sm:text-sm font-bold text-stellar-dark uppercase tracking-wider mb-5">
+              CITIES WE SERVE ACROSS INDIA
+            </h4>
+            <div className="flex flex-wrap gap-2 sm:gap-2.5">
+              {cities.map((city, idx) => (
+                <span
+                  key={idx}
+                  className="px-3.5 py-1 rounded-full border border-gray-200 bg-white text-gray-600 text-xs font-medium hover:border-stellar-cyan hover:text-stellar-dark transition-colors select-none"
+                >
+                  {city}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Col 2: Quick Links */}
-          <div className="lg:col-span-3 space-y-4">
-            <h5 className="text-base font-bold text-white uppercase tracking-wider">
-              Quick Links
-            </h5>
-            <ul className="space-y-2.5 text-sm text-gray-400">
-              <li>
-                <Link to="/" className="hover:text-stellar-cyan transition-colors">Home</Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-stellar-cyan transition-colors">About Us</Link>
-              </li>
-              <li>
-                <Link to="/portfolio" className="hover:text-stellar-cyan transition-colors">Portfolio</Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-stellar-cyan transition-colors">Services</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-stellar-cyan transition-colors">Contact</Link>
-              </li>
-              <li>
-                <Link to="/queries" className="hover:text-stellar-cyan transition-colors">Queries</Link>
-              </li>
-            </ul>
-          </div>
+          {/* Bottom Bar: Copyright & Legal */}
+          <div className="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <p>
+              &copy; {new Date().getFullYear()} STELLAR. All rights reserved.
+            </p>
 
-          {/* Col 3: Resources & Legal */}
-          <div className="lg:col-span-4 space-y-4">
-            <h5 className="text-base font-bold text-white uppercase tracking-wider">
-              Resources
-            </h5>
-            <ul className="space-y-2.5 text-sm text-gray-400">
-              <li>
-                <Link to="/support" className="hover:text-stellar-cyan transition-colors">Support</Link>
-              </li>
-              <li>
-                <Link to="/clinic-website" className="hover:text-stellar-cyan transition-colors">Website for Clinics and Hospitals</Link>
-              </li>
-              <li>
-                <Link to="/blog" className="hover:text-stellar-cyan transition-colors">Blog</Link>
-              </li>
-              <li>
-                <Link to="/privacy-policy" className="hover:text-stellar-cyan transition-colors">Privacy policy</Link>
-              </li>
-              <li>
-                <Link to="/terms-and-conditions" className="hover:text-stellar-cyan transition-colors">Terms &amp; Conditions</Link>
-              </li>
-              <li>
-                <Link to="/cancellationsrefunds" className="hover:text-stellar-cyan transition-colors">Cancellations &amp; Refunds</Link>
-              </li>
-            </ul>
-
-            <div className="pt-4 p-4 rounded-xl bg-white/5 border border-white/10">
-              <p className="text-xs text-gray-400 leading-relaxed">
-                GST Registration: <span className="font-mono text-white">36EQTPM6776A1Z9</span>
-              </p>
+            <div className="flex items-center gap-6">
+              <Link to="/privacy-policy" className="hover:text-stellar-cyan transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-and-conditions" className="hover:text-stellar-cyan transition-colors">
+                Terms of Use
+              </Link>
+              <Link to="/privacy-policy" className="hover:text-stellar-cyan transition-colors">
+                Security Disclosures
+              </Link>
             </div>
           </div>
 
         </div>
+      </footer>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()}, All Rights Reserved by{' '}
-            <span className="font-bold text-white">STELLAR</span>.
-          </p>
+      {/* Floating Action Buttons for Desktop (Call & WhatsApp) */}
+      <div className="hidden md:flex flex-col gap-3 fixed bottom-6 right-6 z-40">
+        {/* Call Button */}
+        <a
+          href="tel:+919014757379"
+          className="w-12 h-12 rounded-full bg-[#00C2CB] text-white flex items-center justify-center shadow-lg hover:shadow-cyan-500/30 hover:scale-110 active:scale-95 transition-all"
+          title="Call STELLAR"
+          aria-label="Call STELLAR"
+        >
+          <Phone className="w-5 h-5" />
+        </a>
 
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-stellar-cyan transition-colors group cursor-pointer"
-          >
-            <span>Back to top</span>
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-stellar-cyan group-hover:text-stellar-dark transition-colors">
-              <ArrowUp className="w-3.5 h-3.5" />
-            </div>
-          </button>
-        </div>
-
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/919014757379?text=Hi%20STELLAR%20Team%2C%20I%20would%20like%20to%20discuss%20a%20website%2Fsoftware%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 rounded-full bg-[#00B06F] text-white flex items-center justify-center shadow-lg hover:shadow-green-500/30 hover:scale-110 active:scale-95 transition-all"
+          title="Chat on WhatsApp"
+          aria-label="Chat on WhatsApp"
+        >
+          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+          </svg>
+        </a>
       </div>
-    </footer>
+
+      {/* Sticky Mobile Bottom Bar (Always present on mobile screens - Image 4) */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden flex items-stretch h-12 shadow-[0_-3px_12px_rgba(0,0,0,0.12)]">
+        {/* Call Us Button */}
+        <a
+          href="tel:+919014757379"
+          className="w-1/2 bg-[#00C2CB] text-white flex items-center justify-center gap-2 font-bold text-sm tracking-wide active:opacity-90 transition-opacity"
+        >
+          <Phone className="w-4 h-4 fill-white" />
+          <span>Call Us</span>
+        </a>
+
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/919014757379?text=Hi%20STELLAR%20Team%2C%20I%20would%20like%20to%20discuss%20a%20website%2Fsoftware%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-1/2 bg-[#00B06F] text-white flex items-center justify-center gap-2 font-bold text-sm tracking-wide active:opacity-90 transition-opacity"
+        >
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </>
   );
 }

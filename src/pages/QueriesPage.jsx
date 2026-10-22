@@ -17,11 +17,6 @@ export default function QueriesPage({ onOpenQuote }) {
   const faqs = [
     {
       category: 'general',
-      q: "What is a digital agency?",
-      a: "A digital agency is a specialized technology and design firm that leverages digital channels, modern web architectures, and user experience methodologies to build and grow their clients’ brands online.",
-    },
-    {
-      category: 'general',
       q: "What services does STELLAR provide?",
       a: "STELLAR provides high-performance website design and development, custom mobile applications, enterprise software/ERP systems, e-commerce stores, business-grade hosting, automated daily backups, and ongoing AMC maintenance support.",
     },
