@@ -19,13 +19,46 @@ export default function ContactPage() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    const text = encodeURIComponent(
-      `Hi STELLAR Team!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
+    setIsSubmitting(true);
+
+    const subject = encodeURIComponent(`New Project Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Hi STELLAR Team,\n\nI would like to discuss a project with STELLAR:\n\n` +
+      `• Name: ${formData.name}\n` +
+      `• Email: ${formData.email}\n` +
+      `• Phone: ${formData.phone}\n\n` +
+      `Message:\n${formData.message}\n`
     );
-    window.open(`https://wa.me/919014757379?text=${text}`, '_blank');
+    const mailtoUrl = `mailto:admin@stellarweb.in?subject=${subject}&body=${body}`;
+
+    try {
+      await fetch('https://formsubmit.co/ajax/admin@stellarweb.in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          _subject: `New STELLAR Inquiry from ${formData.name}`,
+        }),
+      });
+    } catch (err) {
+      // Non-blocking fallback
+    }
+
+    // Direct user to email client
+    window.location.href = mailtoUrl;
+
+    setIsSubmitting(false);
+    setSubmitted(true);
   };
 
   return (
@@ -99,10 +132,10 @@ export default function ContactPage() {
             </div>
             <h3 className="text-xl font-bold text-stellar-dark mb-2">Email Us</h3>
             <p className="text-sm text-stellar-muted leading-relaxed mb-4">
-              Drop us an email at <span className="font-bold text-stellar-dark">support@stellarweb.in</span> and you'll receive a reply within 24 hours.
+              Drop us an email at <span className="font-bold text-stellar-dark">admin@stellarweb.in</span> and you'll receive a reply within 24 hours.
             </p>
             <a
-              href="mailto:support@stellarweb.in"
+              href="mailto:admin@stellarweb.in"
               className="text-sm font-bold text-stellar-lilac hover:underline inline-flex items-center gap-1"
             >
               Send an Email &rarr;
@@ -149,16 +182,41 @@ export default function ContactPage() {
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-stellar-dark">Thank You!</h3>
+                <h3 className="text-2xl font-bold text-stellar-dark">Inquiry Sent!</h3>
                 <p className="text-sm text-stellar-muted max-w-md mx-auto">
-                  Your message has been initiated. Our client success manager will reply via WhatsApp/Email shortly.
+                  Your message has been routed to <strong className="text-stellar-dark">admin@stellarweb.in</strong>. Our team will review your requirements and reply within 24 hours.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="btn-primary text-sm font-semibold mt-4"
-                >
-                  Send Another Message
-                </button>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
+                  <a
+                    href={`mailto:admin@stellarweb.in?subject=${encodeURIComponent(`New Project Inquiry from ${formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`)}`}
+                    className="btn-primary text-xs font-semibold px-5 py-2.5 inline-flex items-center gap-1.5"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Open in Email App</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/919014757379?text=${encodeURIComponent(`Hi STELLAR Team!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline text-xs font-semibold px-5 py-2.5 inline-flex items-center gap-1.5 bg-white"
+                  >
+                    <MessageSquare className="w-4 h-4 text-emerald-600" />
+                    <span>Also Send on WhatsApp</span>
+                  </a>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({ name: '', email: '', phone: '', message: '' });
+                    }}
+                    className="text-xs text-stellar-muted hover:text-stellar-cyan underline font-medium"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -222,9 +280,10 @@ export default function ContactPage() {
                 <div>
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full btn-primary py-4 font-bold text-base flex items-center justify-center gap-2"
                   >
-                    <span>Send Inquiry</span>
+                    <span>{isSubmitting ? 'Sending to admin@stellarweb.in...' : 'Send Inquiry to admin@stellarweb.in'}</span>
                     <Send className="w-4 h-4" />
                   </button>
                 </div>

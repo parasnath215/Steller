@@ -38,9 +38,9 @@ export default function Navbar({ onOpenQuote }) {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img
-              src="https://stellarweb.in/wp-content/uploads/2024/12/cropped-STELLAR__4_-removebg-preview-1.png"
+              src="/images/stellar-logo.svg"
               alt="STELLAR Logo"
-              className="h-14 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 

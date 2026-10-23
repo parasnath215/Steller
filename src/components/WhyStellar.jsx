@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Zap, Users, Shield, TrendingUp } from 'lucide-react';
+import { Check, Zap, Users, Shield, TrendingUp, Settings, Cpu } from 'lucide-react';
 
 export default function WhyStellar() {
   const pillars = [
@@ -41,32 +41,28 @@ export default function WhyStellar() {
               {/* Main Illustration */}
               <div className="relative z-10 bg-[#FAFAFA] p-4 rounded-3xl border border-gray-100 shadow-xl">
                 <img
-                  src="https://stellarweb.in/wp-content/uploads/2023/02/thumb-v7-02-1024x767.png"
+                  src="/images/why-stellar-thumb.png"
                   alt="Speed up your website with STELLAR"
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-auto rounded-2xl border border-gray-100"
                   loading="lazy"
                 />
               </div>
 
               {/* Floating Gear 1 */}
-              <div className="absolute -top-6 -left-4 sm:-left-6 z-20 animate-spin-slow pointer-events-none">
-                <div className="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100">
-                  <img
-                    src="https://stellarweb.in/wp-content/uploads/2023/02/setting1.png"
-                    alt="System Settings"
-                    className="w-10 h-10 object-contain"
-                  />
+              <div className="absolute -top-6 -left-4 sm:-left-6 z-20 pointer-events-none">
+                <div className="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-600">
+                    <Settings className="w-6 h-6 animate-spin-slow" />
+                  </div>
                 </div>
               </div>
 
               {/* Floating Gear 2 */}
               <div className="absolute -bottom-6 -right-4 sm:-right-6 z-20 animate-float-y pointer-events-none">
-                <div className="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100">
-                  <img
-                    src="https://stellarweb.in/wp-content/uploads/2023/02/setting2.png"
-                    alt="Performance Gear"
-                    className="w-12 h-12 object-contain"
-                  />
+                <div className="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-stellar-cyan">
+                    <Cpu className="w-6 h-6" />
+                  </div>
                 </div>
               </div>
 

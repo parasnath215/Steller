@@ -75,20 +75,20 @@ export default function Hero({ onOpenQuote }) {
               {/* Main Artwork */}
               <div className="relative z-10 transition-transform duration-700 hover:scale-[1.02]">
                 <img
-                  src="https://stellarweb.in/wp-content/uploads/2023/02/hero-thumb-v0007.png"
+                  src="/images/hero-thumb.png"
                   alt="STELLAR Agency Web & App Development"
-                  className="w-full h-auto drop-shadow-2xl mx-auto"
+                  className="w-full h-auto rounded-3xl drop-shadow-2xl border border-gray-200/60 mx-auto"
                   loading="eager"
                 />
               </div>
 
               {/* Floating Server Badge */}
               <div className="absolute -top-4 left-4 sm:-top-6 sm:left-6 z-20 animate-float-y pointer-events-none">
-                <div className="bg-white/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
+                <div className="bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
                   <img
-                    src="https://stellarweb.in/wp-content/uploads/2023/02/server.png"
+                    src="/images/server.png"
                     alt="High Speed Server"
-                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-xl"
                   />
                   <div className="hidden sm:block text-left">
                     <p className="text-xs font-bold text-stellar-dark">High Performance</p>
@@ -102,11 +102,11 @@ export default function Hero({ onOpenQuote }) {
 
               {/* Floating Database Badge */}
               <div className="absolute -bottom-6 right-4 sm:-bottom-8 sm:right-6 z-20 animate-float-y-rev pointer-events-none">
-                <div className="bg-white/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
+                <div className="bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
                   <img
-                    src="https://stellarweb.in/wp-content/uploads/2023/02/database-hero.png"
+                    src="/images/database.png"
                     alt="Secure Database"
-                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-xl"
                   />
                   <div className="hidden sm:block text-left">
                     <p className="text-xs font-bold text-stellar-dark">Zero Data Loss</p>

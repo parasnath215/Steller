@@ -15,6 +15,8 @@ export default function QuoteModal({ isOpen, onClose }) {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Solution estimates without price
   const baseEstimates = {
     landing: { name: "Landing Page", days: "3-5 days" },
@@ -25,21 +27,50 @@ export default function QuoteModal({ isOpen, onClose }) {
 
   const currentEst = baseEstimates[projectType] || baseEstimates.starter;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Construct WhatsApp message
-    const message = encodeURIComponent(
-      `Hello STELLAR Team! I requested a project quote:\n\n` +
+    setIsSubmitting(true);
+
+    const subject = encodeURIComponent(`Project Quote Request: ${currentEst.name} - ${formData.name}`);
+    const emailBody = encodeURIComponent(
+      `Hello STELLAR Team,\n\nI would like to request a project quote:\n\n` +
       `• Solution Type: ${currentEst.name}\n` +
       `• Estimated Turnaround: ${currentEst.days}\n` +
       `• Client Name: ${formData.name}\n` +
       `• Company: ${formData.company || 'N/A'}\n` +
       `• Phone: ${formData.phone}\n` +
       `• Email: ${formData.email}\n` +
-      `• Requirements: ${formData.notes || 'None specified'}`
+      `• Requirements: ${formData.notes || 'None specified'}\n`
     );
-    window.open(`https://wa.me/919014757379?text=${message}`, '_blank');
+    const mailtoUrl = `mailto:admin@stellarweb.in?subject=${subject}&body=${emailBody}`;
+
+    try {
+      await fetch('https://formsubmit.co/ajax/admin@stellarweb.in', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          solutionType: currentEst.name,
+          estimatedDays: currentEst.days,
+          name: formData.name,
+          company: formData.company || 'N/A',
+          phone: formData.phone,
+          email: formData.email,
+          requirements: formData.notes || 'None specified',
+          _subject: `New Quote Request: ${currentEst.name} (${formData.name})`,
+        }),
+      });
+    } catch (err) {
+      // Non-blocking fallback
+    }
+
+    // Direct user to email client
+    window.location.href = mailtoUrl;
+
+    setIsSubmitting(false);
+    setSubmitted(true);
   };
 
   return (
@@ -77,20 +108,39 @@ export default function QuoteModal({ isOpen, onClose }) {
             <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h4 className="text-2xl font-bold text-stellar-dark">Quote Request Dispatched!</h4>
+            <h4 className="text-2xl font-bold text-stellar-dark">Quote Request Sent!</h4>
             <p className="text-stellar-muted max-w-md mx-auto text-sm">
-              We have forwarded your quote request to our team on WhatsApp. You can also reach us directly at{' '}
-              <a href="mailto:admin@stellarweb.in" className="text-stellar-cyan font-semibold hover:underline">admin@stellarweb.in</a>.
+              Your quote request has been forwarded to <a href="mailto:admin@stellarweb.in" className="text-stellar-cyan font-bold hover:underline">admin@stellarweb.in</a>. We will prepare your detailed proposal and get back within 24 hours.
             </p>
-            <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
-              className="btn-primary mt-4"
-            >
-              Done
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
+              <a
+                href={`mailto:admin@stellarweb.in?subject=${encodeURIComponent(`Project Quote Request: ${currentEst.name} - ${formData.name}`)}&body=${encodeURIComponent(`Hello STELLAR Team,\n\nI requested a project quote:\n\n• Solution Type: ${currentEst.name}\n• Name: ${formData.name}\n• Company: ${formData.company || 'N/A'}\n• Phone: ${formData.phone}\n• Email: ${formData.email}\n• Requirements: ${formData.notes || 'None'}\n`)}`}
+                className="btn-primary text-xs font-semibold px-5 py-2.5 inline-flex items-center gap-1.5"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Open in Email App</span>
+              </a>
+              <a
+                href={`https://wa.me/919014757379?text=${encodeURIComponent(`Hello STELLAR Team! I requested a project quote:\n\n• Solution: ${currentEst.name}\n• Name: ${formData.name}\n• Phone: ${formData.phone}\n• Email: ${formData.email}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline text-xs font-semibold px-5 py-2.5 inline-flex items-center gap-1.5 bg-white"
+              >
+                <Phone className="w-4 h-4 text-emerald-600" />
+                <span>Also Notify on WhatsApp</span>
+              </a>
+            </div>
+            <div className="pt-2">
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  onClose();
+                }}
+                className="text-xs text-stellar-muted hover:text-stellar-cyan underline font-medium"
+              >
+                Done
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-6">
@@ -224,9 +274,10 @@ export default function QuoteModal({ isOpen, onClose }) {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="btn-primary text-sm font-bold flex items-center gap-2"
               >
-                <span>Get a Quote</span>
+                <span>{isSubmitting ? 'Sending Request...' : 'Send Quote Request'}</span>
                 <Send className="w-4 h-4" />
               </button>
             </div>

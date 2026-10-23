@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, Layout, Smartphone, Wrench, BarChart3 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Layout, Smartphone, Wrench, BarChart3, Zap, ShieldCheck } from 'lucide-react';
 
 export default function WhatWeDo({ onOpenQuote }) {
   const services = [
@@ -53,21 +53,19 @@ export default function WhatWeDo({ onOpenQuote }) {
               {/* Main Illustration */}
               <div className="relative z-10 bg-[#FAFAFA] p-4 rounded-3xl border border-gray-100 shadow-xl">
                 <img
-                  src="https://stellarweb.in/wp-content/uploads/2023/02/thumb-v7-01-1024x818.png"
+                  src="/images/what-we-do-thumb.png"
                   alt="What we do at STELLAR"
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-auto rounded-2xl border border-gray-100"
                   loading="lazy"
                 />
               </div>
 
               {/* Floating Badge 1 - Analytics/Speed */}
               <div className="absolute -top-6 -right-4 sm:-right-6 z-20 animate-float-y pointer-events-none">
-                <div className="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
-                  <img
-                    src="https://stellarweb.in/wp-content/uploads/2023/02/thumb-animation1.png"
-                    alt="Speed Optimization"
-                    className="w-12 h-12 object-contain"
-                  />
+                <div className="bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 flex-shrink-0">
+                    <Zap className="w-6 h-6 fill-amber-500" />
+                  </div>
                   <div>
                     <p className="text-xs font-bold text-stellar-dark">Speed Optimized</p>
                     <p className="text-[11px] text-stellar-cyan font-medium">&lt; 3 Sec Policy</p>
@@ -77,12 +75,10 @@ export default function WhatWeDo({ onOpenQuote }) {
 
               {/* Floating Badge 2 - Secure Icon */}
               <div className="absolute -bottom-6 -left-4 sm:-left-6 z-20 animate-float-y-rev pointer-events-none">
-                <div className="bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
-                  <img
-                    src="https://stellarweb.in/wp-content/uploads/2023/02/secure-icon.png"
-                    alt="Security Guaranteed"
-                    className="w-12 h-12 object-contain"
-                  />
+                <div className="bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
                   <div>
                     <p className="text-xs font-bold text-stellar-dark">Enterprise Security</p>
                     <p className="text-[11px] text-emerald-600 font-medium">SSL &amp; PCI Ready</p>

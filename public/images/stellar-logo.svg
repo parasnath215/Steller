@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
+  <defs>
+    <linearGradient id="stellar-spectrum" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5C58" />
+      <stop offset="35%" stop-color="#FFC436" />
+      <stop offset="70%" stop-color="#7BB086" />
+      <stop offset="100%" stop-color="#00C2CB" />
+    </linearGradient>
+    <linearGradient id="stellar-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00C2CB" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#A277FF" stop-opacity="0.8" />
+    </linearGradient>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Four-Pointed Dynamic Prism Starburst -->
+  <g transform="translate(6, 6)" filter="url(#soft-shadow)">
+    <!-- Ambient back glow -->
+    <circle cx="30" cy="30" r="26" fill="url(#stellar-spectrum)" opacity="0.18" />
+    
+    <!-- Outer Star -->
+    <path d="M 30,2 Q 30,22 10,30 Q 30,38 30,58 Q 30,38 50,30 Q 30,22 30,2 Z" fill="url(#stellar-spectrum)" />
+    
+    <!-- Inner Core Sparkle -->
+    <path d="M 30,16 Q 30,26 20,30 Q 30,34 30,44 Q 30,34 40,30 Q 30,26 30,16 Z" fill="#FFFFFF" opacity="0.9" />
+
+    <!-- Corner Accents -->
+    <circle cx="13" cy="13" r="2" fill="#00C2CB" opacity="0.75" />
+    <circle cx="47" cy="47" r="2" fill="#FF5C58" opacity="0.75" />
+    <circle cx="47" cy="13" r="1.5" fill="#FFC436" opacity="0.8" />
+  </g>
+
+  <!-- Wordmark STELLAR -->
+  <text x="76" y="47" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="1.5" fill="#0D0D0D">
+    STELLAR
+  </text>
+
+  <!-- Subtitle Pill -->
+  <rect x="78" y="53" width="70" height="2" rx="1" fill="url(#stellar-spectrum)" />
+  <text x="156" y="56" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="700" font-size="9" letter-spacing="2" fill="#64748B" text-transform="uppercase">
+    STUDIO
+  </text>
+</svg>

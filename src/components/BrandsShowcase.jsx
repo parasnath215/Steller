@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
-import { ExternalLink, Globe, Sparkles, Monitor, Smartphone } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, Globe, Sparkles } from 'lucide-react';
 
 export default function BrandsShowcase({ onOpenQuote }) {
   const brands = [
     {
-      name: "Maharaja Lucknow",
-      url: "https://maharajalko.in",
-      tag: "Hospitality & Restaurant",
-      desc: "High-performance digital presence with instant reservation flow.",
-      gradient: "from-amber-500/10 to-orange-500/5",
+      name: "ADlights",
+      url: "https://adlights.in",
+      tag: "Architectural & Luxury Lighting",
+      desc: "Architectural ambient illumination and luxury lighting showcase with immersive catalog experience.",
+      image: "/brands/adlights.png",
+      gradient: "from-amber-500/10 to-yellow-500/5",
+    },
+    {
+      name: "Tryfit",
+      url: "https://tryfit.in",
+      tag: "Fitness & Athleisure",
+      desc: "Performance fitness and activewear platform engineered for rapid conversions and seamless shopping.",
+      image: "/brands/tryfit.png",
+      gradient: "from-cyan-500/10 to-blue-500/5",
     },
     {
       name: "Raj Jewellers",
       url: "https://rajjewellers.in",
       tag: "Luxury Retail & Catalog",
       desc: "Elegant luxury catalog showcase with lightning-fast load times.",
+      image: "/brands/rajjewellers.png",
       gradient: "from-emerald-500/10 to-teal-500/5",
     },
     {
@@ -22,20 +32,15 @@ export default function BrandsShowcase({ onOpenQuote }) {
       url: "https://santushti.co.in",
       tag: "FMCG & Brand Portal",
       desc: "Brand authority portal with dynamic product discovery.",
+      image: "/brands/santushti.png",
       gradient: "from-blue-500/10 to-cyan-500/5",
-    },
-    {
-      name: "MediGrow Hub",
-      url: "https://medigrowhub.com",
-      tag: "Healthcare & Clinic",
-      desc: "Patient appointment scheduling and healthcare service ecosystem.",
-      gradient: "from-indigo-500/10 to-purple-500/5",
     },
     {
       name: "Bhasin Aromatics",
       url: "https://bhasinaromatics.com",
       tag: "Export & Manufacturing",
       desc: "Global industrial export catalog with inquiry automation.",
+      image: "/brands/bhasinaromatics.png",
       gradient: "from-pink-500/10 to-rose-500/5",
     },
     {
@@ -43,6 +48,7 @@ export default function BrandsShowcase({ onOpenQuote }) {
       url: "https://staford.in",
       tag: "Education & Institution",
       desc: "Comprehensive admissions portal with real-time student updates.",
+      image: "/brands/staford.png",
       gradient: "from-violet-500/10 to-blue-500/5",
     },
   ];
@@ -101,18 +107,24 @@ export default function BrandsShowcase({ onOpenQuote }) {
                 </a>
               </div>
 
-              {/* Viewport Frame with Iframe */}
-              <div className="relative h-[320px] bg-slate-50 overflow-hidden flex items-center justify-center">
-                {/* Live Preview Iframe */}
-                <iframe
-                  src={brand.url}
-                  title={brand.name}
+              {/* Viewport Frame with High Quality Preview */}
+              <div className="relative h-[260px] sm:h-[280px] bg-slate-100 overflow-hidden">
+                {/* Live Preview Image */}
+                <img
+                  src={brand.image}
+                  alt={`${brand.name} preview`}
                   loading="lazy"
-                  className="w-[140%] h-[140%] -translate-x-[14%] -translate-y-[14%] scale-75 border-0 pointer-events-none group-hover:pointer-events-auto transition-transform"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
+                {/* Subtle bottom shadow vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+
                 {/* Hover Backdrop Overlay with Action Button */}
-                <div className="absolute inset-0 bg-[#0D0D0D]/50 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center p-6 text-center">
+                <div className="absolute inset-0 bg-[#0D0D0D]/65 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-300 flex flex-col items-center justify-center p-6 text-center gap-3">
+                  <span className="text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-white/15 border border-white/20 backdrop-blur-sm">
+                    {brand.tag}
+                  </span>
                   <a
                     href={brand.url}
                     target="_blank"
@@ -122,6 +134,9 @@ export default function BrandsShowcase({ onOpenQuote }) {
                     <span>Visit {brand.name}</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
+                  <span className="text-[11px] text-gray-300 font-mono">
+                    {brand.url.replace('https://', '')}
+                  </span>
                 </div>
               </div>
 

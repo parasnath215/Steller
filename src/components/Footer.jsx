@@ -53,9 +53,9 @@ export default function Footer({ onOpenQuote }) {
             <div className="lg:col-span-4 space-y-6">
               <Link to="/" className="inline-block">
                 <img
-                  src="https://stellarweb.in/wp-content/uploads/2024/12/cropped-STELLAR__4_-removebg-preview-1.png"
+                  src="/images/stellar-logo.svg"
                   alt="STELLAR"
-                  className="h-14 sm:h-16 w-auto object-contain"
+                  className="h-10 sm:h-12 w-auto object-contain"
                 />
               </Link>
 
@@ -137,8 +137,8 @@ export default function Footer({ onOpenQuote }) {
                 </h4>
                 <div className="space-y-2.5 text-xs sm:text-sm text-gray-600">
                   <p>
-                    <a href="mailto:support@stellarweb.in" className="hover:text-stellar-cyan transition-colors">
-                      support@stellarweb.in
+                    <a href="mailto:admin@stellarweb.in" className="hover:text-stellar-cyan transition-colors">
+                      admin@stellarweb.in
                     </a>
                   </p>
                   <p>

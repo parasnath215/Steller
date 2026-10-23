@@ -89,10 +89,10 @@ export default function SupportPage({ onOpenQuote }) {
               Send detailed technical logs, design change requests, or account inquiries directly to our ticketing desk.
             </p>
             <a
-              href="mailto:support@stellarweb.in"
+              href="mailto:admin@stellarweb.in"
               className="btn-dark text-xs font-bold w-full text-center justify-center"
             >
-              support@stellarweb.in
+              admin@stellarweb.in
             </a>
           </div>
 
