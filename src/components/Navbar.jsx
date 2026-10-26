@@ -41,6 +41,12 @@ export default function Navbar({ onOpenQuote }) {
               src="/images/stellar-logo.png"
               alt="STELLAR Logo"
               className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                if (!e.target.dataset.triedSvg) {
+                  e.target.dataset.triedSvg = 'true';
+                  e.target.src = '/images/stellar-logo.svg';
+                }
+              }}
             />
           </Link>
 

@@ -56,6 +56,12 @@ export default function Footer({ onOpenQuote }) {
                   src="/images/stellar-logo.png"
                   alt="STELLAR"
                   className="h-12 sm:h-14 w-auto object-contain"
+                  onError={(e) => {
+                    if (!e.target.dataset.triedSvg) {
+                      e.target.dataset.triedSvg = 'true';
+                      e.target.src = '/images/stellar-logo.svg';
+                    }
+                  }}
                 />
               </Link>
 
