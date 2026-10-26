@@ -38,9 +38,9 @@ export default function Navbar({ onOpenQuote }) {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img
-              src="/images/stellar-logo.svg"
+              src="/images/stellar-logo.png"
               alt="STELLAR Logo"
-              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-11 sm:h-13 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 

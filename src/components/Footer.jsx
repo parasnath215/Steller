@@ -53,9 +53,9 @@ export default function Footer({ onOpenQuote }) {
             <div className="lg:col-span-4 space-y-6">
               <Link to="/" className="inline-block">
                 <img
-                  src="/images/stellar-logo.svg"
+                  src="/images/stellar-logo.png"
                   alt="STELLAR"
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-12 sm:h-14 w-auto object-contain"
                 />
               </Link>
 
